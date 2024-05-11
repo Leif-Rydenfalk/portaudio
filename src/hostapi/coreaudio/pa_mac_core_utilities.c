@@ -68,7 +68,7 @@ OSStatus PaMacCore_AudioHardwareGetProperty(
         UInt32*                 ioPropertyDataSize,
         void*                   outPropertyData )
 {
-    AudioObjectPropertyAddress address = { inPropertyID, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMaster };
+    AudioObjectPropertyAddress address = { inPropertyID, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMain };
     return AudioObjectGetPropertyData(kAudioObjectSystemObject, &address, 0, NULL, ioPropertyDataSize, outPropertyData);
 }
 
@@ -76,7 +76,7 @@ OSStatus PaMacCore_AudioHardwareGetPropertySize(
         AudioHardwarePropertyID inPropertyID,
         UInt32*                 outSize )
 {
-    AudioObjectPropertyAddress address = { inPropertyID, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMaster };
+    AudioObjectPropertyAddress address = { inPropertyID, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMain };
     return AudioObjectGetPropertyDataSize(kAudioObjectSystemObject, &address, 0, NULL, outSize);
 }
 
@@ -152,7 +152,7 @@ OSStatus PaMacCore_AudioStreamGetProperty(
         UInt32*               ioPropertyDataSize,
         void*                 outPropertyData )
 {
-    AudioObjectPropertyAddress address = { inPropertyID, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMaster };
+    AudioObjectPropertyAddress address = { inPropertyID, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMain };
     return AudioObjectGetPropertyData(inStream, &address, 0, NULL, ioPropertyDataSize, outPropertyData);
 }
 
